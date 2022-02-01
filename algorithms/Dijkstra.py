@@ -1,8 +1,8 @@
 import math
 from models import Graph
-from typing import List, Tuple
+from typing import Any, List, Tuple
 
-def get_min(dist, Q) -> int:
+def get_min(dist : List, Q : List) -> int:
     min_index = Q[0]
     for ix in Q:
         if dist[ix] < dist[min_index]:
@@ -35,7 +35,7 @@ def Dijkstra(G : Graph, source : int) -> Tuple[List[int], List[int]]:
     
     return dist, prev
 
-def camino_Dijkstra(G, inicio, destino):
+def camino_Dijkstra(G : Graph, inicio : Any, destino: Any) -> List[Any]:
     dist, prev = Dijkstra(G, inicio)
     S = []
     u = destino
