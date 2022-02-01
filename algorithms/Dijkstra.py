@@ -1,4 +1,4 @@
-import math
+import numpy as np
 from models import Graph
 from typing import Any, List, Tuple
 
@@ -16,7 +16,7 @@ def Dijkstra(G : Graph, source : int) -> Tuple[List[int], List[int]]:
     dist = [0 for _ in range(len(G.nodos))]
     prev = [-1 for _ in range(len(G.nodos))]
     for v in G.nodos:
-        dist[v] = math.inf
+        dist[v] = np.inf
         Q.append(v)
     
     dist[source] = 0
