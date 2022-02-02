@@ -1,19 +1,7 @@
 import time
 from models import Graph
-from algorithms import Dijkstra, camino_Dijkstra, FloydWarshall, simplex
+from algorithms import Dijkstra, camino_Dijkstra, FloydWarshall, simplex, time_algorithms
 from utils import print_matrix
-
-def time_algorithms(G):
-    start = time.perf_counter()
-    Dijkstra(G, 1)
-    end = time.perf_counter()
-    print(f"Dijkstra: {end - start} s")
-
-    start = time.perf_counter()
-    FloydWarshall(G)
-    end = time.perf_counter()
-    print(f"Dijkstra: {end - start} s ")
-
 
 def menu():
     print("1. Imprimir el Grafo")
@@ -42,7 +30,8 @@ if __name__ == '__main__':
         elif choice == "4":
             print(simplex(G, 0, 1))
         elif choice == "5":
-            pass
+            s, t = tuple(map(int, input("Nodo de inicio y nodo objetivo: ").split()))
+            print(time_algorithms(G, s, t))
         elif choice == "6":
             break
     

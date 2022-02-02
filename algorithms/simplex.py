@@ -4,7 +4,7 @@ from typing import List, Any, Tuple
 from models import Graph
 from utils import print_matrix
 
-def simplex(G : Graph, s : int, t : int):
+def simplex(G : Graph, s : int, t : int, benchmark = False):
     adj_mat = G.matriz_adyacencia()
     adj_mat[adj_mat == np.inf] = 0
     c = [] # funcion obj
@@ -35,10 +35,10 @@ def simplex(G : Graph, s : int, t : int):
             b.append(-1)
         else:
             b.append(0)
-    
-    print(f"{c=}")
-    print_matrix(A)
-    print(f"{b=}")
+    if not benchmark:
+        print(f"{c=}")
+        print_matrix(A)
+        print(f"{b=}")
 
     res = linprog(c, A_eq= A, b_eq=b, method='simplex')
     return res

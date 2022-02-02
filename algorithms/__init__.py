@@ -1,3 +1,4 @@
 from .Dijkstra import Dijkstra, camino_Dijkstra
 from .FloydWarshall import FloydWarshall
-from .simplex import simplex
+from .Simplex import simplex
+from .Benchmark import time_algorithms
